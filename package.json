@@ -1,0 +1,13 @@
+{
+  "name": "ngoc-vstep-writing-lab",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "VSTEP Writing practice website with detailed bilingual AI review through Netlify AI Gateway.",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "openai": "^4.104.0"
+  }
+}

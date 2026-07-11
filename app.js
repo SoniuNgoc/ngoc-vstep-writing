@@ -605,24 +605,37 @@
     const task = getTask();
     const result = evaluateOffline(text, task);
     result.submittedAt = new Date().toISOString();
+    result.aiPending = true;
     state.submissions[submissionKey] = result;
     saveState(); renderResults(result, true); updatePartStatuses();
 
-    // Translation works automatically after deployment to Netlify. A public fallback is also attempted.
+    // Keep the quick translation as a fallback, but never overwrite a later AI review.
     translateText(result.correctedEnglish).then(vi => {
+      const current = state.submissions[submissionKey] || result;
+      if (current.engine === 'ai' && current.translationVi) return;
       if (vi) {
-        result.translationVi = vi; result.translationStatus='done';
-        state.submissions[submissionKey] = result; saveState(); if (taskKey() === submissionKey) renderResults(result, false);
+        current.translationVi = vi; current.translationStatus='done';
       } else {
-        result.translationStatus='failed'; state.submissions[submissionKey] = result; saveState(); if (taskKey() === submissionKey) renderResults(result, false);
+        current.translationStatus='failed';
       }
+      state.submissions[submissionKey] = current; saveState();
+      if (taskKey() === submissionKey) renderResults(current, false);
     });
 
-    // Optional deep AI review. If no server configuration exists, the offline result stays in place.
+    // Detailed bilingual review through Netlify AI Gateway.
     tryAIReview(text, task, submissionPart).then(ai => {
+      const current = state.submissions[submissionKey] || result;
+      current.aiPending = false;
+      if (ai?.__aiError) {
+        current.aiError = ai.__aiError;
+        state.submissions[submissionKey] = current; saveState();
+        if (taskKey() === submissionKey) renderResults(current, false);
+        return;
+      }
       if (ai) {
-        const merged = {...result, ...ai, engine:'ai', submittedAt:result.submittedAt};
-        state.submissions[submissionKey] = merged; saveState(); if (taskKey() === submissionKey) renderResults(merged, false);
+        const merged = {...current, ...ai, engine:'ai', aiPending:false, aiError:'', submittedAt:result.submittedAt};
+        state.submissions[submissionKey] = merged; saveState();
+        if (taskKey() === submissionKey) renderResults(merged, false);
       }
     });
   }
@@ -642,17 +655,25 @@
   async function tryAIReview(text, task, part) {
     try {
       const r = await fetch('/.netlify/functions/review', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text,task,part})});
-      if(!r.ok) return null;
-      const d=await r.json();
-      if(!d || !d.correctedEnglish) return null;
+      const d = await r.json().catch(()=>({}));
+      if(!r.ok) return {__aiError:d.detail || d.error || `AI service returned ${r.status}.`};
+      if(!d || !d.correctedEnglish) return {__aiError:'AI did not return a complete corrected version.'};
       return d;
-    } catch { return null; }
+    } catch (error) {
+      return {__aiError:error?.message || 'Không kết nối được với AI.'};
+    }
   }
 
   function renderResults(result, scroll=true) {
     const task = getTask();
     els.resultSection.classList.remove('hidden');
-    els.reviewEngineLabel.textContent = result.engine === 'ai' ? 'Bài được phân tích bằng chế độ AI nâng cao và trình bày song ngữ.' : 'Bài được kiểm tra bằng bộ sửa lỗi tích hợp. Khi cấu hình AI trên Netlify, hệ thống sẽ phân tích sâu hơn.';
+    els.reviewEngineLabel.textContent = result.engine === 'ai'
+      ? `Bài được AI sửa chi tiết, giải thích Anh – Việt${result.model ? ` · ${result.model}` : ''}.`
+      : result.aiPending
+        ? 'Đã có kết quả kiểm tra nhanh. AI đang đọc toàn bài để sửa kỹ hơn…'
+        : result.aiError
+          ? `Đang hiển thị kết quả kiểm tra nhanh. AI chưa chạy: ${result.aiError}`
+          : 'Bài được kiểm tra bằng bộ sửa lỗi tích hợp.';
     const labels=[['task','Task fulfillment','Đáp ứng đề'],['organization','Organization','Tổ chức bài'],['vocabulary','Vocabulary','Từ vựng'],['grammar','Grammar','Ngữ pháp']];
     els.scoreGrid.innerHTML=labels.map(([k,en,vi])=>`<div class="score-card"><span>${en}<br>${vi}</span><strong>${result.scores[k]}/10</strong><div class="score-bar"><i style="width:${result.scores[k]*10}%"></i></div></div>`).join('');
 
@@ -663,7 +684,7 @@
       <div class="feedback-box"><h4>Mức độ trả lời đề</h4><ul>${result.coverage.map(x=>`<li>${x.met?'✓':'○'} ${escapeHtml(x.vi)}</li>`).join('')}</ul></div>
     </div>`;
 
-    $('panel-errors').innerHTML = result.errors?.length ? `<div class="error-list">${result.errors.map(e=>`<div class="error-card"><div class="error-top"><div class="error-old">${escapeHtml(e.original)}</div><div class="error-new">${escapeHtml(e.suggestion)}</div></div><div class="error-note"><strong>Giải thích:</strong> ${escapeHtml(e.vi)}<br><strong>English:</strong> ${escapeHtml(e.en||'Please review this expression.')}</div></div>`).join('')}</div>` : `<div class="feedback-box"><h4>Chưa phát hiện lỗi phổ biến</h4><p>Bộ kiểm tra cơ bản chưa tìm thấy lỗi theo các quy tắc tích hợp. Ngọc vẫn nên đọc lại cách dùng thì, mạo từ và sự phù hợp của từ vựng.</p></div>`;
+    $('panel-errors').innerHTML = result.errors?.length ? `<div class="error-list">${result.errors.map(e=>`<div class="error-card">${e.category?`<span class="error-category">${escapeHtml(e.category)}</span>`:''}<div class="error-top"><div class="error-old">${escapeHtml(e.original)}</div><div class="error-new">${escapeHtml(e.suggestion)}</div></div><div class="error-note"><strong>Giải thích:</strong> ${escapeHtml(e.vi)}<br><strong>English:</strong> ${escapeHtml(e.en||'Please review this expression.')}</div></div>`).join('')}</div>` : `<div class="feedback-box"><h4>Chưa phát hiện lỗi phổ biến</h4><p>${result.engine==='ai'?'AI chưa tìm thấy lỗi đáng kể trong bài này. Ngọc vẫn nên đối chiếu phần góp ý tổng quan và mức độ trả lời đề.':'Bộ kiểm tra cơ bản chưa tìm thấy lỗi theo các quy tắc tích hợp. Ngọc vẫn nên đọc lại cách dùng thì, mạo từ và sự phù hợp của từ vựng.'}</p></div>`;
 
     $('panel-corrected').innerHTML=`<div class="output-heading"><h4>Suggested corrected version</h4><button class="secondary-btn copy-output" data-copy="corrected">Sao chép</button></div><div class="text-output" id="correctedOutput">${escapeHtml(result.correctedEnglish)}</div>`;
     $('panel-translation').innerHTML=result.translationVi ? `<div class="output-heading"><h4>Bản dịch tiếng Việt của bài đã sửa</h4><button class="secondary-btn copy-output" data-copy="translation">Sao chép</button></div><div class="text-output" id="translationOutput">${escapeHtml(result.translationVi)}</div>` : result.translationStatus==='failed' ? `<div class="feedback-box"><h4>Chưa tải được bản dịch tự động</h4><p>Hãy mở website khi có Internet hoặc triển khai lên Netlify. Bản dịch song ngữ của bài mẫu vẫn có trong thẻ “Bài mẫu tham khảo”.</p></div>` : `<div class="loading-line">Đang dịch bài đã sửa sang tiếng Việt…</div>`;
