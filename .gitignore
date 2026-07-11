@@ -1,0 +1,16 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Local/editor files
+.vscode/
+.idea/
+*.log
+
+# Netlify local state
+.netlify/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example

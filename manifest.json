@@ -1,0 +1,9 @@
+{
+  "name":"Ngọc VSTEP Writing Lab",
+  "short_name":"Ngọc Writing",
+  "start_url":"./index.html",
+  "display":"standalone",
+  "background_color":"#fff6f9",
+  "theme_color":"#d96b93",
+  "description":"Luyện và mô phỏng thi Writing VSTEP với bấm giờ, đếm từ, lưu bài và góp ý song ngữ."
+}

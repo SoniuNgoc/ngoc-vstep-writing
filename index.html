@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#d96b93">
+  <meta name="description" content="Ngọc VSTEP Writing Lab - luyện và mô phỏng thi Writing VSTEP với đồng hồ, đếm từ, lưu bài và sửa bài song ngữ.">
+  <title>Ngọc VSTEP Writing Lab</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.json">
+  <script>
+    try {
+      if (localStorage.getItem('ngoc-writing-theme') === 'dark') {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    } catch (_) {}
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <header class="site-topbar">
+    <button class="site-brand" id="brandHomeBtn" aria-label="Về trang chủ">
+      <span class="site-brand-mark">N</span>
+      <span><strong>Ngọc Writing Lab</strong><small>VSTEP B1–B2</small></span>
+    </button>
+    <nav class="site-nav" aria-label="Điều hướng chính">
+      <button class="site-nav-btn active" data-page="home">Trang chủ</button>
+      <button class="site-nav-btn" data-page="tests">Bộ đề</button>
+      <button class="site-nav-btn" data-page="practice">Phòng thi</button>
+    </nav>
+    <button class="site-progress-btn" id="globalProgressBtn">Tiến độ</button>
+    <button class="theme-toggle" id="themeToggle" type="button" title="Chuyển sang chế độ tối" aria-label="Chuyển sang chế độ tối" aria-pressed="false">
+      <span class="theme-icon" aria-hidden="true">◐</span>
+    </button>
+  </header>
+
+  <main>
+    <section id="homeView" class="page-view">
+      <div class="hero shell">
+        <div class="hero-copy">
+          <span class="eyebrow">LUYỆN VIẾT CÓ LỘ TRÌNH</span>
+          <h1>Thi thử Writing VSTEP<br><span>đúng form – sửa dễ hiểu</span></h1>
+          <p>12 bộ đề, đủ Task 1 và Task 2, đồng hồ 60 phút, đếm từ, lưu bản nháp và phản hồi Anh – Việt dành riêng cho Ngọc.</p>
+          <div class="hero-actions">
+            <button class="btn primary" id="quickStartBtn">Bắt đầu đề ngẫu nhiên</button>
+            <button class="btn secondary" id="chooseTestBtn">Chọn một bộ đề</button>
+          </div>
+          <div class="trust-row">
+            <span>✓ Task 1: 20 phút · ≥120 từ</span>
+            <span>✓ Task 2: 40 phút · ≥250 từ</span>
+            <span>✓ Chuyển phần tự do</span>
+          </div>
+        </div>
+
+        <div class="hero-panel card" aria-label="Mô phỏng bài thi Writing">
+          <div class="mini-exam-head"><span>PAPER 3. WRITING</span><span class="live-dot">60:00</span></div>
+          <div class="mini-part active"><b>01</b><div><strong>Letter / Email</strong><small>20 minutes · at least 120 words</small></div><span>20’</span></div>
+          <div class="mini-part"><b>02</b><div><strong>Essay</strong><small>40 minutes · at least 250 words</small></div><span>40’</span></div>
+          <div class="mini-writing-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="mini-feedback"><span class="score-chip">8.0</span><div><b>Góp ý sau khi nộp</b><small>Task fulfillment · Organization · Vocabulary · Grammar</small></div></div>
+        </div>
+      </div>
+
+      <section class="shell section-block">
+        <div class="section-title"><div><span class="eyebrow">CÁCH LUYỆN</span><h2>Một quy trình rõ ràng</h2></div></div>
+        <div class="feature-grid">
+          <article class="feature card"><span class="feature-icon">01</span><h3>Chọn đề theo chủ đề</h3><p>Mỗi bộ đề có Task 1 và Task 2, trình bày theo đúng nhịp bài thi.</p></article>
+          <article class="feature card"><span class="feature-icon">02</span><h3>Viết trong thời gian thật</h3><p>Bấm giờ 20/40 phút hoặc làm trọn bài thi 60 phút, có lưu tự động.</p></article>
+          <article class="feature card"><span class="feature-icon">03</span><h3>Nhận sửa bài song ngữ</h3><p>Xem lỗi, cách sửa, bản tiếng Anh gợi ý và bản dịch tiếng Việt dễ hiểu.</p></article>
+        </div>
+      </section>
+
+      <section class="shell section-block form-section">
+        <div class="section-title"><div><span class="eyebrow">TASK 1</span><h2>2 form thư · nhận biết trong vài giây</h2></div></div>
+        <div class="letter-form-grid">
+          <article class="form-card card letter-form-card"><span>FORM THƯ ĐI TRẢ LỜI</span><h3>Reply / Feedback / Advice</h3><p><b>Dấu hiệu:</b> người khác đã gửi câu hỏi hoặc yêu cầu bạn cung cấp thông tin; đề yêu cầu <b>respond</b>, <b>answer</b>, đưa <b>feedback</b> hoặc cho <b>advice</b>.</p><small>Mẹo: Có người hỏi trước → mình trả lời từng ý.</small></article>
+          <article class="form-card card letter-form-card"><span>FORM THƯ ĐI HỎI</span><h3>Request / Apology / Complaint</h3><p><b>Dấu hiệu:</b> bạn chủ động viết để <b>ask for</b>, <b>request</b>, đề nghị, xin việc, xin lỗi, cảm ơn, mời hoặc phàn nàn.</p><small>Mẹo: Mình là người chủ động viết đi → dùng form đi hỏi.</small></article>
+        </div>
+      </section>
+
+      <section class="shell section-block form-section">
+        <div class="section-title"><div><span class="eyebrow">TASK 2</span><h2>4 dạng luận · 3 form cần nhớ</h2></div><button class="btn secondary" id="homeOpenTestsBtn">Xem toàn bộ đề</button></div>
+        <div class="form-grid">
+          <article class="form-card card"><span>FORM 1</span><h3>Advantage–Disadvantage</h3><p>Dấu hiệu thường gặp: <b>advantages and disadvantages</b>, <b>pros and cons</b>, <b>positive and negative effects</b>.</p></article>
+          <article class="form-card card"><span>FORM 2</span><h3>Opinion–Discussion</h3><p>Dùng chung cho dạng Opinion và Discussion. Chú ý: <b>agree or disagree</b>, <b>discuss both views</b>, <b>give your opinion</b>.</p></article>
+          <article class="form-card card"><span>FORM 3</span><h3>Problem–Solution</h3><p>Dấu hiệu thường gặp: <b>causes</b>, <b>problems</b>, <b>effects</b>, <b>solutions</b>, <b>what can be done</b>.</p></article>
+        </div>
+      </section>
+    </section>
+
+    <section id="testsView" class="page-view hidden">
+      <div class="shell library-page">
+        <div class="page-heading">
+          <div><span class="eyebrow">12 BỘ ĐỀ</span><h1>Chọn bài luyện Writing</h1><p>Mỗi thẻ hiển thị tên chủ đề bằng tiếng Anh. Bấm “Xem bản dịch” để mở tên tiếng Việt.</p></div>
+          <button class="btn primary" id="randomFromLibraryBtn">Đề ngẫu nhiên</button>
+        </div>
+        <div class="library-toolbar">
+          <label class="search-box"><span>⌕</span><input id="testSearchInput" type="search" placeholder="Tìm theo chủ đề, ví dụ: online learning"></label>
+          <select id="categoryFilter" aria-label="Lọc theo nhóm chủ đề"></select>
+        </div>
+        <div id="testLibrary" class="test-library"></div>
+      </div>
+    </section>
+
+    <section id="practiceView" class="page-view hidden">
+      <div class="app-shell">
+        <aside class="sidebar" id="sidebar">
+          <div class="sidebar-header">
+            <div><p class="eyebrow">QUESTION BANK</p><h2>Writing topics</h2></div>
+            <button class="icon-btn mobile-only" id="closeSidebarBtn" aria-label="Đóng">×</button>
+          </div>
+          <div class="sidebar-summary">
+            <div><strong id="doneCount">0</strong><span>bài đã nộp</span></div>
+            <div><strong id="draftCount">0</strong><span>bản nháp</span></div>
+            <div><strong>12</strong><span>bộ đề</span></div>
+          </div>
+          <nav id="topicNav" class="topic-nav" aria-label="Danh sách chủ đề"></nav>
+          <div class="sidebar-note"><strong>Mẹo nhỏ</strong><p>Bài được lưu tự động. Ngọc có thể đổi phần hoặc đổi đề bất cứ lúc nào.</p></div>
+        </aside>
+
+        <main class="main-content">
+          <div class="mobile-practice-bar">
+            <button class="icon-btn mobile-only" id="openSidebarBtn" aria-label="Mở danh sách chủ đề"><span></span><span></span><span></span></button>
+            <button class="back-link" id="backToTestsBtn">← Chọn đề khác</button>
+          </div>
+
+          <section class="workspace-header">
+            <div class="workspace-title-block">
+              <p class="breadcrumb" id="breadcrumb"></p>
+              <h1 id="setTitle">VSTEP Writing</h1>
+              <details class="translation-reveal workspace-translation"><summary>Xem bản dịch</summary><p id="setTitleTranslation"></p></details>
+              <p id="setSubtitle" class="muted"></p>
+            </div>
+            <div class="workspace-controls">
+              <button class="ghost-btn form-help-button" id="formHelpBtn" title="Xem dấu hiệu nhận biết form của Task 1 hoặc Task 2"><span class="btn-icon">?</span><span>Nhận biết form</span></button>
+              <button class="ghost-btn" id="examModeBtn" title="Chuyển giữa luyện tập và thi thử 60 phút"><span class="btn-icon">⏱</span><span id="modeLabel">Luyện từng phần</span></button>
+              <button class="ghost-btn" id="progressBtn"><span class="btn-icon">◎</span>Tiến độ</button>
+              <div class="shared-timer hidden" id="sharedTimerCard"><span>Thi thử 60 phút</span><strong id="sharedTimer">60:00</strong><button class="timer-mini-btn" id="sharedTimerToggle">Bắt đầu</button></div>
+            </div>
+          </section>
+
+          <section class="part-switcher" aria-label="Chọn phần thi">
+            <button class="part-tab active" data-part="task1"><span class="part-number">01</span><span><strong>Writing Task 1</strong><small>Letter / Email · 20 phút · ≥120 từ</small></span><span class="status-dot" id="statusTask1"></span></button>
+            <button class="part-tab" data-part="task2"><span class="part-number">02</span><span><strong>Writing Task 2</strong><small>Essay · 40 phút · ≥250 từ</small></span><span class="status-dot" id="statusTask2"></span></button>
+          </section>
+
+          <section class="study-grid">
+            <div class="left-column">
+              <article class="prompt-card card">
+                <div class="card-title-row">
+                  <div><p class="eyebrow" id="taskType">TASK TYPE</p><h2 id="taskTitle">Question</h2></div>
+                  <div class="task-badges"><span class="badge" id="timeBadge">20 minutes</span><span class="badge" id="wordBadge">At least 120 words</span></div>
+                </div>
+                <div class="prompt-instruction" id="promptInstruction"></div>
+                <div class="prompt-text" id="promptText"></div>
+                <div id="recognitionPanel" class="recognition-panel hidden">
+                  <div class="recognition-heading"><span>Dạng bài & form</span><strong id="essayFormBadge"></strong></div>
+                  <div id="recognitionDetails"></div>
+                </div>
+                <div class="requirements" id="requirements"></div>
+                <div class="prompt-footer">
+                  <button class="link-btn" id="toggleVietnamesePrompt">Xem bản dịch</button>
+                  <button class="link-btn" id="toggleOutline">Gợi ý lập dàn ý</button>
+                </div>
+                <div id="promptVietnamese" class="helper-panel hidden"></div>
+                <div id="outlinePanel" class="helper-panel hidden"></div>
+              </article>
+
+              <article class="writing-card card">
+                <div class="writing-toolbar">
+                  <div class="timer-box" aria-live="polite"><span class="timer-label">Thời gian còn lại</span><strong id="partTimer">20:00</strong><button id="timerToggle" class="timer-action">Bắt đầu</button><button id="timerReset" class="timer-reset" title="Đặt lại đồng hồ">↺</button></div>
+                  <div class="editor-stats"><span><strong id="wordCount">0</strong> từ</span><span><strong id="charCount">0</strong> ký tự</span><span id="saveStatus">Chưa có nội dung</span></div>
+                </div>
+                <label class="sr-only" for="answerBox">Nhập bài viết</label>
+                <textarea id="answerBox" spellcheck="true" placeholder="Write your answer here…\n\nBài được lưu tự động. Ngọc có thể chuyển sang phần khác rồi quay lại tiếp tục."></textarea>
+                <div class="word-progress" aria-hidden="true"><span id="wordProgressBar"></span></div>
+                <div class="writing-actions"><div><button class="secondary-btn" id="clearBtn">Xóa bài</button><button class="secondary-btn" id="copyBtn">Sao chép</button></div><button class="primary-btn" id="submitBtn">Nộp bài và xem sửa lỗi <span>→</span></button></div>
+              </article>
+            </div>
+
+            <aside class="right-column">
+              <article class="card quick-guide"><p class="eyebrow">CHECKLIST</p><h3>Trước khi nộp bài</h3><div id="liveChecklist" class="checklist"></div></article>
+              <article class="card phrase-bank"><div class="card-title-row compact"><div><p class="eyebrow">USEFUL LANGUAGE</p><h3>Cụm từ hữu ích</h3></div><button class="icon-circle" id="shufflePhrases" title="Đổi cụm từ">↻</button></div><div id="phraseList"></div></article>
+            </aside>
+          </section>
+
+          <section id="resultSection" class="result-section hidden">
+            <div class="result-heading"><div><p class="eyebrow">KẾT QUẢ BÀI LÀM</p><h2>Sửa bài song ngữ</h2><p class="muted" id="reviewEngineLabel">Phản hồi được tạo từ bộ kiểm tra tích hợp.</p></div><button class="secondary-btn" id="closeResultBtn">Thu gọn kết quả</button></div>
+            <div class="score-grid" id="scoreGrid"></div>
+            <div class="result-tabs" role="tablist"><button class="result-tab active" data-result="overview">Tổng quan</button><button class="result-tab" data-result="errors">Lỗi và cách sửa</button><button class="result-tab" data-result="corrected">Bản sửa tiếng Anh</button><button class="result-tab" data-result="translation">Bản dịch tiếng Việt</button><button class="result-tab" data-result="model">Bài mẫu tham khảo</button></div>
+            <div class="result-panel active" id="panel-overview"></div><div class="result-panel" id="panel-errors"></div><div class="result-panel" id="panel-corrected"></div><div class="result-panel" id="panel-translation"></div><div class="result-panel" id="panel-model"></div>
+          </section>
+        </main>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop hidden" id="progressModal">
+    <div class="modal-card"><div class="modal-header"><div><p class="eyebrow">TIẾN ĐỘ HỌC</p><h2>Hành trình của Ngọc</h2></div><button class="icon-btn" id="closeProgressBtn" aria-label="Đóng cửa sổ tiến độ">×</button></div><div id="progressContent"></div></div>
+  </div>
+
+  <div class="modal-backdrop hidden" id="formHelpModal" role="dialog" aria-modal="true" aria-labelledby="formHelpTitle">
+    <div class="modal-card form-help-modal-card">
+      <div class="modal-header">
+        <div><p class="eyebrow" id="formHelpEyebrow">CỨU NGUY WRITING</p><h2 id="formHelpTitle">Nhìn dấu hiệu để chọn đúng form</h2><p class="muted form-help-intro" id="formHelpIntro">Hãy tìm từ khóa trong đề trước khi lập dàn ý.</p></div>
+        <button class="icon-btn" id="closeFormHelpBtn" aria-label="Đóng hướng dẫn nhận biết form">×</button>
+      </div>
+
+      <div id="formHelpCurrent" class="current-form-analysis"></div>
+
+      <div id="task1RecognitionGuide" class="task1-recognition-guide hidden">
+        <div class="letter-guide-grid" aria-label="Hai form thư Writing Task 1">
+          <article class="recognition-type-card letter-guide-card" data-letter-kind="reply">
+            <div class="guide-card-head"><span class="guide-number">01</span><div><strong>FORM THƯ ĐI TRẢ LỜI</strong><small>Reply / Feedback / Advice</small></div></div>
+            <p><b>Dấu hiệu nhận biết:</b></p>
+            <div class="guide-signals"><mark>asks you about...</mark><mark>respond to...</mark><mark>answer the questions</mark><mark>share your experience</mark><mark>give feedback</mark><mark>give advice</mark></div>
+            <p class="guide-memory"><b>Dùng khi:</b> người khác yêu cầu bạn cung cấp thông tin, gửi feedback hoặc cho lời khuyên.</p>
+            <div class="letter-template-box"><b>Khung nhớ nhanh</b><code>Today, I am writing this letter to answer your questions.</code><code>Firstly, in your letter, you asked me about...</code><code>Secondly, as for your question about...</code></div>
+          </article>
+
+          <article class="recognition-type-card letter-guide-card" data-letter-kind="ask">
+            <div class="guide-card-head"><span class="guide-number">02</span><div><strong>FORM THƯ ĐI HỎI</strong><small>Request / Apology / Complaint</small></div></div>
+            <p><b>Dấu hiệu nhận biết:</b></p>
+            <div class="guide-signals"><mark>ask for...</mark><mark>request...</mark><mark>need more information</mark><mark>write to the manager</mark><mark>apologise</mark><mark>complain</mark></div>
+            <p class="guide-memory"><b>Dùng khi:</b> thư yêu cầu, đề nghị, xin việc, xin lỗi, cảm ơn, thư mời hoặc phàn nàn.</p>
+            <div class="letter-template-box"><b>Khung nhớ nhanh</b><code>Today, I am writing this letter to ask for...</code><code>Could you please let me know...?</code><code>I would like to know...</code></div>
+          </article>
+        </div>
+        <div class="letter-decision-rule"><span>?</span><div><strong>Câu hỏi quyết định</strong><p>“Có ai gửi câu hỏi/thư đến và mình đang phản hồi không?” Có → <b>đi trả lời</b>. Không, mình chủ động viết để yêu cầu/xin lỗi/phàn nàn → <b>đi hỏi</b>.</p></div></div>
+      </div>
+
+      <div id="task2RecognitionGuide">
+        <div class="recognition-guide-grid" aria-label="Bốn dạng luận Writing Task 2">
+          <article class="recognition-type-card" data-guide-kind="Advantage–Disadvantage">
+            <div class="guide-card-head"><span class="guide-number">01</span><div><strong>Advantage–Disadvantage</strong><small>Dùng FORM 1</small></div></div>
+            <p><b>Dấu hiệu:</b></p>
+            <div class="guide-signals"><mark>advantages and disadvantages</mark><mark>pros and cons</mark><mark>benefits and drawbacks</mark><mark>positive and negative effects</mark><mark>Do the advantages outweigh the disadvantages?</mark></div>
+            <p class="guide-memory"><b>Nhớ nhanh:</b> Đề yêu cầu phân tích hai mặt tốt – xấu.</p>
+          </article>
+
+          <article class="recognition-type-card" data-guide-kind="Opinion">
+            <div class="guide-card-head"><span class="guide-number">02</span><div><strong>Opinion</strong><small>Dùng FORM 2</small></div></div>
+            <p><b>Dấu hiệu:</b></p>
+            <div class="guide-signals"><mark>Do you agree or disagree?</mark><mark>To what extent do you agree or disagree?</mark><mark>What is your opinion?</mark><mark>Do you think...?</mark></div>
+            <p class="guide-memory"><b>Nhớ nhanh:</b> Phải chọn rõ đồng ý, không đồng ý hoặc mức độ đồng ý.</p>
+          </article>
+
+          <article class="recognition-type-card" data-guide-kind="Discussion">
+            <div class="guide-card-head"><span class="guide-number">03</span><div><strong>Discussion</strong><small>Dùng FORM 2</small></div></div>
+            <p><b>Dấu hiệu:</b></p>
+            <div class="guide-signals"><mark>Discuss both views</mark><mark>Discuss both sides</mark><mark>Discuss and give your opinion</mark><mark>Some people think... while others...</mark></div>
+            <p class="guide-memory"><b>Nhớ nhanh:</b> Trình bày cả hai quan điểm, sau đó nêu ý kiến của mình.</p>
+          </article>
+
+          <article class="recognition-type-card" data-guide-kind="Problem–Solution">
+            <div class="guide-card-head"><span class="guide-number">04</span><div><strong>Problem–Solution</strong><small>Dùng FORM 3</small></div></div>
+            <p><b>Dấu hiệu:</b></p>
+            <div class="guide-signals"><mark>causes / reasons</mark><mark>problems</mark><mark>effects / impacts</mark><mark>solutions</mark><mark>What can be done?</mark><mark>How can this problem be solved / tackled?</mark></div>
+            <p class="guide-memory"><b>Nhớ nhanh:</b> Xác định vấn đề, nguyên nhân hoặc tác động rồi đưa giải pháp theo đúng yêu cầu đề.</p>
+          </article>
+        </div>
+
+        <div class="form-template-guide">
+          <h3>3 form cần nhớ</h3>
+          <div class="form-template-grid">
+            <article><span>FORM 1</span><strong>Advantage–Disadvantage</strong><p>Mở bài → Ưu điểm → Nhược điểm → Kết luận.</p></article>
+            <article><span>FORM 2</span><strong>Opinion–Discussion</strong><p>Mở bài → Ý 1 → Ý 2 / phản biện → Quan điểm & kết luận.</p></article>
+            <article><span>FORM 3</span><strong>Problem–Solution</strong><p>Mở bài → Nguyên nhân / vấn đề / tác động → Giải pháp → Kết luận.</p></article>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-help-note" id="formHelpNote"><strong>Mẹo:</strong> Cụm được bôi đỏ ngay trong đề hiện tại chính là dấu hiệu nhận biết.</div>
+    </div>
+  </div>
+  <div class="sidebar-overlay hidden" id="sidebarOverlay"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
