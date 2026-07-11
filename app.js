@@ -29,6 +29,8 @@
     'career-2':{en:'Leave Request & Multitasking',vi:'Xin nghỉ phép & Làm nhiều việc cùng lúc'},
     'travel-1':{en:'Summer Plans & Studying Abroad',vi:'Kế hoạch nghỉ hè & Du học'},
     'travel-2':{en:'Hotel Feedback & Local Tourism',vi:'Phản hồi khách sạn & Du lịch địa phương'},
+    'travel-3':{en:'Lost Luggage & Social Media',vi:'Hành lý thất lạc & Mạng xã hội'},
+    'travel-4':{en:'Gap Year Visit & Light Pollution',vi:'Năm nghỉ học & Ô nhiễm ánh sáng'},
     'technology-1':{en:'Digital Marketing & Vietnamese Products',vi:'Khóa Digital Marketing & Sản phẩm Việt'},
     'technology-2':{en:'Taxi Complaint & Advertising',vi:'Phàn nàn taxi & Quảng cáo'},
     'society-1':{en:'Introducing a Friend & Fame',vi:'Giới thiệu bạn An & Sự nổi tiếng'},
@@ -71,6 +73,16 @@
       key:'reply', form:'Form thư đi trả lời', kind:'Thư feedback / phản hồi',
       signals:['share your experience','suggest improvements','recommend the hotel'],
       memory:'Theo tài liệu, thư feedback được xếp vào form thư đi trả lời.'
+    },
+    'travel-3': {
+      key:'reply', form:'Form thư đi trả lời', kind:'Thư trả lời cung cấp thông tin',
+      signals:['has asked you to provide information','replying to the manager'],
+      memory:'Quản lý đã gửi email hỏi thông tin trước; bạn trả lời lần lượt về hành lý, chuyến bay và cách liên hệ.'
+    },
+    'travel-4': {
+      key:'reply', form:'Form thư đi trả lời', kind:'Thư trả lời và cho lời khuyên',
+      signals:['has written to ask for your advice','responding to Tom'],
+      memory:'Tom đã viết thư xin lời khuyên; bạn trả lời đủ ba nhóm ý về kỹ năng, hành lý/lịch trình và kỹ năng nên học trong gap year.'
     },
     'technology-1': {
       key:'ask', form:'Form thư đi hỏi', kind:'Thư hỏi thông tin',

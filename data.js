@@ -1142,6 +1142,216 @@ window.VSTEP_DATA = {
         "time": 40,
         "minWords": 250
       }
+    },
+    {
+      "id": "travel-3",
+      "categoryId": "travel",
+      "categoryName": "Du lịch & Trải nghiệm",
+      "title": "Hành lý thất lạc & Mạng xã hội",
+      "task1": {
+        "title": "Trả Lời Quản Lý Về Hành Lý Thất Lạc",
+        "type": "Thư trả lời cung cấp thông tin",
+        "prompt_en": "You have received an email from the airport’s lost-luggage manager. The manager has asked you to provide information about your missing luggage, your flight, your seat number and travel time, and your contact details. Write an email replying to the manager.",
+        "prompt_vi": "Bạn nhận được email từ quản lý bộ phận hành lý thất lạc của sân bay. Người quản lý yêu cầu bạn cung cấp thông tin về hành lý bị mất, chuyến bay, số ghế, thời gian di chuyển và thông tin liên lạc. Hãy viết email trả lời người quản lý.",
+        "requirements": [
+          {
+            "en": "Describe the missing luggage clearly.",
+            "vi": "Mô tả rõ hành lý bị thất lạc.",
+            "keywords": [
+              "luggage",
+              "suitcase",
+              "bag",
+              "colour",
+              "size",
+              "brand",
+              "label",
+              "missing"
+            ]
+          },
+          {
+            "en": "Give the flight details, seat number and travel time.",
+            "vi": "Cung cấp thông tin chuyến bay, số ghế và thời gian di chuyển.",
+            "keywords": [
+              "flight",
+              "seat",
+              "number",
+              "departure",
+              "arrival",
+              "time",
+              "date"
+            ]
+          },
+          {
+            "en": "Provide your contact details and preferred way to be contacted.",
+            "vi": "Cung cấp thông tin liên lạc và cách bạn muốn được liên hệ.",
+            "keywords": [
+              "contact",
+              "phone",
+              "email",
+              "address",
+              "reach",
+              "call"
+            ]
+          }
+        ],
+        "sample_en": "Dear Sir or Madam,\n\nThank you for your email. I am writing to provide the information you requested about my missing luggage.\n\nThe missing item is a medium-sized black suitcase with a red ribbon tied around the handle. It has a small white name tag on the side and a silver scratch near one of the wheels. Inside the suitcase, there are clothes, a pair of sports shoes, some books and a blue jacket.\n\nI travelled on flight VN218 from Ho Chi Minh City to Hanoi on 8 July. My seat number was 18A. The flight departed at 6:30 p.m. and arrived at approximately 8:40 p.m. I last saw the suitcase at the check-in counter before departure, but it did not appear on the baggage belt after I landed.\n\nYou can contact me by phone at 09xx xxx xxx or by email at example@email.com. Email is the most convenient method during the day, but I can also answer phone calls after 5 p.m.\n\nPlease let me know if you need any further information. I look forward to hearing from you soon.\n\nYours faithfully,",
+        "sample_vi": "Kính gửi Ông/Bà,\n\nCảm ơn Ông/Bà đã gửi email. Tôi viết thư này để cung cấp thông tin được yêu cầu về hành lý bị thất lạc của tôi.\n\nĐó là một chiếc vali màu đen cỡ vừa, có buộc một dải ruy băng màu đỏ quanh tay cầm. Bên hông vali có thẻ tên nhỏ màu trắng và gần một bánh xe có một vết xước màu bạc. Bên trong có quần áo, một đôi giày thể thao, một số cuốn sách và một chiếc áo khoác màu xanh.\n\nTôi đi chuyến bay VN218 từ Thành phố Hồ Chí Minh đến Hà Nội vào ngày 8 tháng 7. Số ghế của tôi là 18A. Chuyến bay khởi hành lúc 6 giờ 30 tối và đến nơi vào khoảng 8 giờ 40 tối. Lần cuối tôi nhìn thấy vali là tại quầy làm thủ tục trước giờ khởi hành, nhưng sau khi hạ cánh, vali không xuất hiện trên băng chuyền hành lý.\n\nÔng/Bà có thể liên hệ với tôi qua số điện thoại 09xx xxx xxx hoặc email example@email.com. Email là cách thuận tiện nhất vào ban ngày, nhưng tôi cũng có thể nghe điện thoại sau 5 giờ chiều.\n\nXin vui lòng cho tôi biết nếu cần thêm thông tin. Tôi mong sớm nhận được hồi âm.\n\nTrân trọng,",
+        "time": 20,
+        "minWords": 120
+      },
+      "task2": {
+        "title": "Ưu Và Nhược Điểm Của Mạng Xã Hội",
+        "type": "Advantage–Disadvantage Essay",
+        "prompt_en": "Using social media brings both advantages and disadvantages. Discuss the advantages and disadvantages of using social media.",
+        "prompt_vi": "Việc sử dụng mạng xã hội mang lại cả ưu điểm và nhược điểm. Hãy thảo luận những ưu điểm và nhược điểm của việc sử dụng mạng xã hội.",
+        "requirements": [
+          {
+            "en": "Discuss the main advantages of social media.",
+            "vi": "Thảo luận những ưu điểm chính của mạng xã hội.",
+            "keywords": [
+              "advantage",
+              "communication",
+              "information",
+              "learning",
+              "business",
+              "connect"
+            ]
+          },
+          {
+            "en": "Discuss the main disadvantages of social media.",
+            "vi": "Thảo luận những nhược điểm chính của mạng xã hội.",
+            "keywords": [
+              "disadvantage",
+              "addiction",
+              "privacy",
+              "false",
+              "cyberbullying",
+              "time"
+            ]
+          },
+          {
+            "en": "Give a balanced conclusion and practical advice.",
+            "vi": "Đưa ra kết luận cân bằng và lời khuyên thực tế.",
+            "keywords": [
+              "in conclusion",
+              "overall",
+              "responsibly",
+              "limit",
+              "balance"
+            ]
+          }
+        ],
+        "sample_en": "Social media has become an important part of daily life, especially among young people. Platforms such as Facebook, TikTok and Instagram allow users to communicate, share information and entertain themselves. Although social media offers several benefits, it also creates serious disadvantages. This essay will discuss both sides.\n\nOne major advantage is that social media makes communication fast and convenient. People can keep in touch with relatives and friends who live far away, join online communities and exchange ideas immediately. It is also a useful learning tool. Students can follow educational pages, watch short lessons and find information about scholarships, jobs or public events. In addition, small businesses can advertise products at a relatively low cost and reach a large number of potential customers. During emergencies, social networks can also spread warnings and important updates quickly.\n\nHowever, there are several drawbacks. First, excessive use can waste time and reduce concentration. Some students spend hours scrolling through short videos instead of studying, exercising or sleeping. Second, not all online information is reliable. False news can spread rapidly and influence people before the facts are checked. Privacy is another concern because personal photos, locations and messages may be collected or shared without permission. Moreover, cyberbullying and negative comparisons can affect users’ confidence and mental well-being, particularly among teenagers.\n\nIn conclusion, social media provides convenient communication, learning opportunities and business benefits, but it can also cause addiction, misinformation and privacy problems. The advantages can outweigh the disadvantages if people check information carefully, protect personal data and set reasonable time limits for daily use.",
+        "sample_vi": "Mạng xã hội đã trở thành một phần quan trọng của đời sống hằng ngày, đặc biệt đối với người trẻ. Các nền tảng như Facebook, TikTok và Instagram cho phép người dùng giao tiếp, chia sẻ thông tin và giải trí. Mặc dù mạng xã hội mang lại nhiều lợi ích, nó cũng tạo ra những hạn chế nghiêm trọng. Bài luận này sẽ thảo luận cả hai mặt.\n\nMột ưu điểm lớn là mạng xã hội giúp giao tiếp nhanh chóng và thuận tiện. Mọi người có thể giữ liên lạc với người thân và bạn bè ở xa, tham gia cộng đồng trực tuyến và trao đổi ý tưởng ngay lập tức. Đây cũng là một công cụ học tập hữu ích. Học sinh có thể theo dõi các trang giáo dục, xem bài học ngắn và tìm thông tin về học bổng, việc làm hoặc sự kiện công cộng. Ngoài ra, doanh nghiệp nhỏ có thể quảng bá sản phẩm với chi phí tương đối thấp và tiếp cận nhiều khách hàng tiềm năng. Trong tình huống khẩn cấp, mạng xã hội còn có thể nhanh chóng truyền cảnh báo và thông tin quan trọng.\n\nTuy nhiên, mạng xã hội có nhiều nhược điểm. Trước hết, sử dụng quá mức có thể làm lãng phí thời gian và giảm khả năng tập trung. Một số học sinh dành hàng giờ xem video ngắn thay vì học tập, tập thể dục hoặc ngủ. Thứ hai, không phải thông tin trực tuyến nào cũng đáng tin cậy. Tin giả có thể lan truyền nhanh và tác động đến mọi người trước khi sự thật được kiểm chứng. Quyền riêng tư cũng là một vấn đề vì hình ảnh, vị trí và tin nhắn cá nhân có thể bị thu thập hoặc chia sẻ khi chưa được phép. Hơn nữa, bắt nạt trực tuyến và việc so sánh tiêu cực có thể ảnh hưởng đến sự tự tin và sức khỏe tinh thần của người dùng, đặc biệt là thanh thiếu niên.\n\nTóm lại, mạng xã hội mang lại giao tiếp thuận tiện, cơ hội học tập và lợi ích kinh doanh, nhưng cũng có thể gây nghiện, lan truyền thông tin sai và tạo ra vấn đề về quyền riêng tư. Lợi ích có thể lớn hơn hạn chế nếu người dùng kiểm tra thông tin cẩn thận, bảo vệ dữ liệu cá nhân và đặt giới hạn thời gian sử dụng hợp lý.",
+        "time": 40,
+        "minWords": 250
+      }
+    },
+    {
+      "id": "travel-4",
+      "categoryId": "travel",
+      "categoryName": "Du lịch & Trải nghiệm",
+      "title": "Năm nghỉ học & Ô nhiễm ánh sáng",
+      "task1": {
+        "title": "Trả Lời Tom Và Cho Lời Khuyên Về Gap Year",
+        "type": "Thư trả lời và cho lời khuyên",
+        "prompt_en": "Your friend Tom, who lives in London, is taking a gap year after several exhausting years of study. He has written to ask for your advice because he wants to visit your country during this time. Write an email responding to Tom.",
+        "prompt_vi": "Tom, một người bạn sống ở London, đang dành một năm nghỉ sau nhiều năm học tập mệt mỏi. Tom viết thư xin lời khuyên vì muốn đến thăm đất nước của bạn trong thời gian này. Hãy viết email trả lời Tom.",
+        "requirements": [
+          {
+            "en": "Advise Tom which skills he should learn before arriving in your country.",
+            "vi": "Khuyên Tom nên học những kỹ năng nào trước khi đến đất nước của bạn.",
+            "keywords": [
+              "skill",
+              "before",
+              "arrive",
+              "language",
+              "communication",
+              "culture"
+            ]
+          },
+          {
+            "en": "Say what he should bring and how he should arrange his travel schedule.",
+            "vi": "Nói Tom nên mang theo gì và sắp xếp lịch trình chuyến đi như thế nào.",
+            "keywords": [
+              "bring",
+              "pack",
+              "schedule",
+              "plan",
+              "weather",
+              "passport",
+              "time"
+            ]
+          },
+          {
+            "en": "Suggest a useful new skill he could learn during the gap year before returning to school.",
+            "vi": "Gợi ý một kỹ năng mới hữu ích Tom có thể học trong năm nghỉ trước khi quay lại trường.",
+            "keywords": [
+              "gap year",
+              "learn",
+              "new skill",
+              "volunteer",
+              "cooking",
+              "digital",
+              "school"
+            ]
+          }
+        ],
+        "sample_en": "Hi Tom,\n\nIt is great to hear that you are taking a gap year and planning to visit Vietnam. After several demanding years of study, a well-planned break can help you relax and gain useful experience.\n\nBefore you arrive, I suggest learning a few basic Vietnamese expressions for greetings, ordering food and asking for directions. You should also read about local customs, road safety and how to use transport apps. These skills will make daily communication easier and help you avoid misunderstandings.\n\nFor the trip, bring light clothes, comfortable shoes, a raincoat, sunscreen, a reusable water bottle and copies of your passport and travel insurance. Try not to schedule too many activities on the same day. You could spend a few days in each place and include rest days between long journeys. It is also wise to book important transport and accommodation in advance.\n\nDuring your gap year, I think you should learn basic cooking or join a short volunteer project. Either choice would improve your independence, teamwork and confidence before you return to school.\n\nLet me know your planned travel dates, and I will help you make a more detailed itinerary.\n\nBest wishes,",
+        "sample_vi": "Chào Tom,\n\nMình rất vui khi biết bạn đang dành một năm nghỉ và dự định đến Việt Nam. Sau nhiều năm học tập căng thẳng, một kỳ nghỉ được lên kế hoạch hợp lý có thể giúp bạn thư giãn và tích lũy kinh nghiệm hữu ích.\n\nTrước khi đến, mình khuyên bạn học một số câu tiếng Việt cơ bản dùng để chào hỏi, gọi món và hỏi đường. Bạn cũng nên tìm hiểu phong tục địa phương, an toàn giao thông và cách sử dụng các ứng dụng di chuyển. Những kỹ năng này sẽ giúp việc giao tiếp hằng ngày dễ dàng hơn và tránh hiểu lầm.\n\nĐối với chuyến đi, bạn nên mang quần áo nhẹ, giày thoải mái, áo mưa, kem chống nắng, bình nước có thể tái sử dụng và bản sao hộ chiếu cùng bảo hiểm du lịch. Đừng xếp quá nhiều hoạt động trong cùng một ngày. Bạn có thể ở mỗi nơi vài ngày và dành ngày nghỉ giữa các chặng đường dài. Bạn cũng nên đặt trước những phương tiện và chỗ ở quan trọng.\n\nTrong năm nghỉ, mình nghĩ bạn nên học nấu ăn cơ bản hoặc tham gia một dự án tình nguyện ngắn. Cả hai lựa chọn đều giúp cải thiện tính tự lập, khả năng làm việc nhóm và sự tự tin trước khi bạn quay lại trường.\n\nHãy cho mình biết ngày dự kiến đi để mình giúp bạn lập lịch trình chi tiết hơn.\n\nThân mến,",
+        "time": 20,
+        "minWords": 120
+      },
+      "task2": {
+        "title": "Tác Động Và Giải Pháp Cho Ô Nhiễm Ánh Sáng",
+        "type": "Problem–Solution Essay",
+        "prompt_en": "Light pollution is becoming a serious problem in many urban areas. Discuss the impacts of light pollution and recommend some effective solutions to address it.",
+        "prompt_vi": "Ô nhiễm ánh sáng đang trở thành một vấn đề nghiêm trọng ở nhiều khu vực đô thị. Hãy thảo luận các tác động của ô nhiễm ánh sáng và đề xuất một số giải pháp hiệu quả để giải quyết vấn đề này.",
+        "requirements": [
+          {
+            "en": "Discuss the impacts of light pollution on people.",
+            "vi": "Thảo luận tác động của ô nhiễm ánh sáng đối với con người.",
+            "keywords": [
+              "impact",
+              "people",
+              "sleep",
+              "health",
+              "stress",
+              "night"
+            ]
+          },
+          {
+            "en": "Discuss impacts on wildlife, the environment or energy use.",
+            "vi": "Thảo luận tác động đối với động vật hoang dã, môi trường hoặc việc sử dụng năng lượng.",
+            "keywords": [
+              "wildlife",
+              "environment",
+              "bird",
+              "insect",
+              "energy",
+              "waste",
+              "sky"
+            ]
+          },
+          {
+            "en": "Recommend effective solutions.",
+            "vi": "Đề xuất các giải pháp hiệu quả.",
+            "keywords": [
+              "solution",
+              "government",
+              "shield",
+              "LED",
+              "timer",
+              "turn off",
+              "regulation"
+            ]
+          }
+        ],
+        "sample_en": "Light pollution refers to excessive or poorly directed artificial light at night. It is common in large cities where streetlights, advertising boards, offices and buildings remain brightly lit for many hours. Although artificial lighting is necessary for safety and economic activity, uncontrolled light can have harmful effects. This essay will discuss the main impacts and suggest practical solutions.\n\nOne important impact is on human health. Bright light entering homes at night can interrupt sleep and make it difficult for people to rest properly. Poor sleep may reduce concentration, increase stress and affect performance at school or work. Light pollution also hides the night sky, so city residents have fewer opportunities to observe stars and learn about astronomy.\n\nThe natural environment is also affected. Many birds, insects and other animals use darkness to navigate, feed or reproduce. Strong artificial light can confuse migrating birds, attract insects away from their normal habitats and disturb the behaviour of nocturnal animals. In addition, unnecessary lighting wastes electricity, increases energy costs and indirectly produces more greenhouse-gas emissions when power comes from fossil fuels.\n\nSeveral measures can reduce the problem. Local authorities should require streetlights and outdoor lamps to point downward instead of shining into the sky or nearby homes. Energy-efficient lights with warmer colours should be used because very bright blue-white light causes greater disturbance. Timers, motion sensors and automatic dimming systems can turn lights down when streets or buildings are empty. Businesses should switch off advertising signs after a reasonable hour. Finally, public campaigns can encourage households to close curtains, use only the light they need and avoid leaving garden lights on all night.\n\nIn conclusion, light pollution harms sleep, wildlife, the night sky and energy efficiency. Better lighting design, sensible regulations and responsible public behaviour can significantly reduce its effects without making cities unsafe.",
+        "sample_vi": "Ô nhiễm ánh sáng là tình trạng ánh sáng nhân tạo vào ban đêm quá mức hoặc được chiếu không đúng hướng. Hiện tượng này phổ biến ở các thành phố lớn, nơi đèn đường, bảng quảng cáo, văn phòng và tòa nhà được chiếu sáng mạnh trong nhiều giờ. Mặc dù ánh sáng nhân tạo cần thiết cho an toàn và hoạt động kinh tế, ánh sáng không được kiểm soát có thể gây nhiều tác hại. Bài luận này sẽ thảo luận các tác động chính và đề xuất những giải pháp thực tế.\n\nMột tác động quan trọng là đối với sức khỏe con người. Ánh sáng mạnh chiếu vào nhà ban đêm có thể làm gián đoạn giấc ngủ và khiến mọi người khó nghỉ ngơi đầy đủ. Giấc ngủ kém có thể làm giảm khả năng tập trung, tăng căng thẳng và ảnh hưởng đến hiệu quả học tập hoặc làm việc. Ô nhiễm ánh sáng cũng che khuất bầu trời đêm, khiến người sống ở thành phố có ít cơ hội quan sát các vì sao và tìm hiểu thiên văn học.\n\nMôi trường tự nhiên cũng bị ảnh hưởng. Nhiều loài chim, côn trùng và động vật khác dựa vào bóng tối để định hướng, kiếm ăn hoặc sinh sản. Ánh sáng nhân tạo mạnh có thể làm chim di cư mất phương hướng, thu hút côn trùng rời khỏi môi trường sống bình thường và làm rối loạn hành vi của các loài hoạt động về đêm. Ngoài ra, việc chiếu sáng không cần thiết gây lãng phí điện, tăng chi phí năng lượng và gián tiếp tạo ra nhiều khí nhà kính hơn khi điện được sản xuất từ nhiên liệu hóa thạch.\n\nCó thể áp dụng một số biện pháp để giảm vấn đề. Chính quyền địa phương nên yêu cầu đèn đường và đèn ngoài trời chiếu xuống dưới thay vì chiếu lên trời hoặc vào nhà dân. Nên sử dụng đèn tiết kiệm năng lượng có màu ấm hơn vì ánh sáng xanh trắng quá mạnh gây nhiều xáo trộn hơn. Bộ hẹn giờ, cảm biến chuyển động và hệ thống tự động giảm sáng có thể hạ mức chiếu sáng khi đường phố hoặc tòa nhà vắng người. Doanh nghiệp nên tắt biển quảng cáo sau một giờ hợp lý. Cuối cùng, chiến dịch cộng đồng có thể khuyến khích các hộ gia đình đóng rèm, chỉ dùng lượng ánh sáng cần thiết và không để đèn vườn sáng suốt đêm.\n\nTóm lại, ô nhiễm ánh sáng gây hại cho giấc ngủ, động vật hoang dã, bầu trời đêm và hiệu quả sử dụng năng lượng. Thiết kế chiếu sáng tốt hơn, quy định hợp lý và hành vi có trách nhiệm của cộng đồng có thể giảm đáng kể tác động của nó mà không làm thành phố mất an toàn.",
+        "time": 40,
+        "minWords": 250
+      }
     }
   ]
 };
@@ -1149,18 +1359,20 @@ window.VSTEP_DATA = {
 // Standard VSTEP Task 2 classification used by the practice interface.
 (() => {
   const meta = {
-    'education-1': { kind: 'Advantage–Disadvantage', form: 'Form 1: Advantage–Disadvantage', signals: ['Discuss the advantages and disadvantages'] },
-    'education-2': { kind: 'Discussion', form: 'Form 2: Opinion–Discussion', signals: ['Discuss and give your opinion'] },
-    'career-1': { kind: 'Opinion', form: 'Form 2: Opinion–Discussion', signals: ['Do you agree or disagree'] },
-    'career-2': { kind: 'Advantage–Disadvantage', form: 'Form 1: Advantage–Disadvantage', signals: ['Discuss the advantages and disadvantages'] },
-    'travel-1': { kind: 'Advantage–Disadvantage', form: 'Form 1: Advantage–Disadvantage', signals: ['Discuss the advantages and disadvantages'] },
-    'travel-2': { kind: 'Advantage–Disadvantage', form: 'Form 1: Advantage–Disadvantage', signals: ['positive and negative effects'] },
-    'technology-1': { kind: 'Opinion', form: 'Form 2: Opinion–Discussion', signals: ['Do you agree'] },
-    'technology-2': { kind: 'Advantage–Disadvantage', form: 'Form 1: Advantage–Disadvantage', signals: ['Discuss the advantages and disadvantages'] },
-    'society-1': { kind: 'Advantage–Disadvantage', form: 'Form 1: Advantage–Disadvantage', signals: ['Discuss the advantages and disadvantages'] },
-    'society-2': { kind: 'Problem–Solution', form: 'Form 3: Problem–Solution', signals: ['causes', 'effects'] },
-    'health-1': { kind: 'Problem–Solution', form: 'Form 3: Problem–Solution', signals: ['effects of stress', 'suggest solutions'] },
-    'health-2': { kind: 'Problem–Solution', form: 'Form 3: Problem–Solution', signals: ['Discuss why', 'the impacts'] }
+    'education-1': { kind: "Advantage–Disadvantage", form: "Form 1: Advantage–Disadvantage", signals: ["Discuss the advantages and disadvantages"] },
+    'education-2': { kind: "Discussion", form: "Form 2: Opinion–Discussion", signals: ["Discuss and give your opinion"] },
+    'career-1': { kind: "Opinion", form: "Form 2: Opinion–Discussion", signals: ["Do you agree or disagree"] },
+    'career-2': { kind: "Advantage–Disadvantage", form: "Form 1: Advantage–Disadvantage", signals: ["Discuss the advantages and disadvantages"] },
+    'travel-1': { kind: "Advantage–Disadvantage", form: "Form 1: Advantage–Disadvantage", signals: ["Discuss the advantages and disadvantages"] },
+    'travel-2': { kind: "Advantage–Disadvantage", form: "Form 1: Advantage–Disadvantage", signals: ["positive and negative effects"] },
+    'travel-3': { kind: "Advantage–Disadvantage", form: "Form 1: Advantage–Disadvantage", signals: ["advantages and disadvantages"] },
+    'travel-4': { kind: "Problem–Solution", form: "Form 3: Problem–Solution", signals: ["impacts of light pollution", "solutions to address it"] },
+    'technology-1': { kind: "Opinion", form: "Form 2: Opinion–Discussion", signals: ["Do you agree"] },
+    'technology-2': { kind: "Advantage–Disadvantage", form: "Form 1: Advantage–Disadvantage", signals: ["Discuss the advantages and disadvantages"] },
+    'society-1': { kind: "Advantage–Disadvantage", form: "Form 1: Advantage–Disadvantage", signals: ["Discuss the advantages and disadvantages"] },
+    'society-2': { kind: "Problem–Solution", form: "Form 3: Problem–Solution", signals: ["causes", "effects"] },
+    'health-1': { kind: "Problem–Solution", form: "Form 3: Problem–Solution", signals: ["effects of stress", "suggest solutions"] },
+    'health-2': { kind: "Problem–Solution", form: "Form 3: Problem–Solution", signals: ["Discuss why", "the impacts"] }
   };
   window.VSTEP_DATA.sets.forEach(set => {
     const info = meta[set.id];
